@@ -1,0 +1,108 @@
+== know_names
+~knownames = true
+#CLEAR
+    ~ alter(jonesSuspicious_Osbourne, 1)
+         [Something seems off...] #CLASS: change
+        His smile doesn't drop as he raises an eyebrow and taps a piece of paper on his desk. "Class roster. They <i>do</i> let me know who signs up for my course."
+        Is he laughing at you? "But how did you know to use my last name?" Most professors called you by your first until you corrected them, and even then it would probably be hit or miss, if high school teachers were any indication.
+        He taps the paper again. "Other teachers can add relevant notes. Nicknames, pronouns, the like. I printed this off just a few minutes ago to make sure the information was up to date."
+        * [Continue]
+        -
+        #CLEAR
+        It sounds reasonable enough, but you definitely feel like he's laughing at you. Like there's some joke he's in on and you're not. Whatever. You grab a befuddled Brigid and lead her to a pair of desks in the back of the room.
+        The professor eventually stops staring at the two of you, and instead leans forward in his chair, his elbows on the table, his chin in his and, and closes his eyes as though lost in thought. That odd smile is still on his face, though.
+   *[Wait for the bell to ring] ->classBegins
+
+== uh_hi
+#CLEAR
+       "Uh. Hi," you say, eyes already on a pair of desks in the back of the room.
+        The professor doesn't so much as blink at your less-than-enthusiastic response, just turns his smile expectantly to Brigid, who mutters who own greeting, then quickly follows you to the desks you're zone in on.
+        He eventually stops staring at the two of you and instead leans forward in his chair, his elbows on the desk, his chin in his and, and his eyes closed as though lost in thought. He still smiles, however, like someone who knows something you don't and thinks it's funny.
+   *[Wait for the bell to ring] ->classBegins
+== read_Syllabus 
+#CLEAR
+You may be new to college, but you thought syllabi generally had... more. This has one class date listed for each week with vague things like "Q&A" and "Hands on" listed next to them. What does "hands on" even mean for an occult studies class? You're not sure you want to know. There are also only a few tests listed, which doesn't seem like enough, even for a blow-off class.
+The only other thing of note is a list of relevant topics:
+
+//   {skip:
+//         * I'm playtesting
+//             Where are you going?
+//             **[Recruitment time]
+//                 What stats would you like?
+//                  *** [++ Everyone]
+//                 ~jonesLikes_Brigid += 2
+//                 ~jonesLikes_Felixe += 2
+//                 ~jonesSuspicious_Brigid += 1
+//                 ~jonesSuspicious_Osbourne += 1
+//                 //~read_Syllabus = true
+//                 ->recruitment_time
+//                 *** [-- Everyone]
+//                 ~jonesLikes_Brigid -= 2
+//                 ~jonesLikes_Felixe -= 2
+                
+//                 -> recruitment_time
+//                 *** [Neutral everyone]
+//                 -> recruitment_time
+//             **[About to sign]
+//                 What stats would you like?
+//                  *** [++ Everyone]
+//                 ~jonesLikes_Brigid += 2
+//                 ~jonesLikes_Felixe += 2
+//                 ~jonesSuspicious_Brigid += 1
+//                 ~jonesSuspicious_Osbourne += 1
+//                 //~read_Syllabus = true
+//                 ->recruitment_time.in_office
+//                 *** [-- Everyone]
+//                 ~jonesLikes_Brigid -= 2
+//                 ~jonesLikes_Felixe -= 2
+                
+//                 -> recruitment_time.in_office
+//                 *** [Neutral everyone]
+//                 -> recruitment_time.in_office
+//     }
+
+* [What the heck is this?]
+
+-
+<ul>
+    <li>  The Buried    </li>
+    <li>  The Corruption    </li>
+    <li>  The Dark    </li>
+    <li>  The Desolation    </li>
+    <li>  The End    </li>
+    <li>  The Eye    </li> 
+    <li>  The Flesh    </li> 
+    <li>  The Hunt    </li> 
+    <li>  The Lonely    </li> 
+    <li>  The Slaughter    </li>
+    <li>  The Spiral    </li>
+    <li>  The Stranger   </li>
+    <li>  The Vast    </li> 
+    <li>  The Web    </li> 
+    <li>  More?    </li>
+ </ul>
+
+* That's extremely weird. Like. Really weird.
+    ~alter(jonesSuspicious_Osbourne,1)
+    [Something seems off...] #CLASS: change
+    You're not sure exactly what you were expecting from a class on the paranormal, but it wasn't this. Slaughter? Hunt? Where's bigfoot? Or vampires? Or ghosts or <i>something</i> recognizable. 
+    You try to subtly look at the professor as he hands out the last few syllabi, but he manages to catch your eye and smiles for a moment before focusing back on the other students.
+* You guess this makes sense for a paranormal class?
+    You've never taken a class like this before or really read a lot of books about it, so maybe any expectations you had about learning about bigfoot were misplaced. He's the professor, right? He'd know better than you.
+    -
+* [Look to see Brigid's reaction.]
+    ~alter(jonesSuspicious_Brigid,1)
+    ~alter(jonesLikes_Brigid,1)
+    [Something seems off...] #CLASS: change
+    You look over at Brigid, who seems to be studying the paper pretty hard, flipping it over to the back like she hopes there's more. A lock of hair is wound tight around one finger.
+    [You think you understand Brigid a bit better.] #CLASS: approve
+* [Look to see the guy at the front's reaction.]
+    ~alter(jonesSuspicious_Felixe,1)
+    ~alter(jonesLikes_Felixe,1)
+    [Something seems off...] #CLASS: change
+    You try to subtly crane your neck to see if the guy's reaction will give you any clue to how you know him, but he was one of the first to get the syllabus, so you don't even see it on his desk, he's just writing furiously in his notebook. You <i>do</i> see a balled up piece of paper in his open backpack that you don't think was there before.
+    [You think you understand that guy a bit better.] #CLASS: approve
+ 
+- 
+*[Continue class]
+-> continue_Class

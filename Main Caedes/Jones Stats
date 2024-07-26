@@ -1,0 +1,44 @@
+VAR jonesLikes_Brigid = 2
+VAR jonesLikes_Thomas = 0
+VAR jonesLikes_Felixe = 0
+VAR jonesLikes_Osbourne = 0
+
+VAR jonesSuspicious_Brigid = 0
+VAR jonesSuspicious_Thomas = 1
+VAR jonesSuspicious_Osbourne = 0
+VAR jonesSuspicious_Felixe = 0
+
+VAR jonesCharm = 0
+VAR jonesCool = 0
+VAR jonesSharp = 0
+VAR jonesTough = 0
+VAR jonesWeird = 2
+
+VAR jonesChange_Charm = 0
+VAR jonesChange_Cool = 0
+VAR jonesChange_Sharp = 0
+VAR jonesChange_Tough = 0
+VAR jonesChange_Weird = 0
+
+VAR jonesSlaughter = 1
+VAR jonesEye = 0
+VAR jonesVast = 0
+VAR jonesWeb = 0
+VAR jonesStranger = 0
+VAR jonesDesolation = 0
+VAR jonesFlesh = 0
+VAR jonesCorruption = 0
+VAR jonesDark = 0
+VAR jonesBuried = 0
+VAR jonesEnd = 0
+VAR jonesHunt = 0
+VAR jonesLonely = 0
+VAR jonesSpiral = 0
+
+
+VAR jonesRide = ""
+
+LIST jones_facts = brigid_hints
+
+
+//LIST Facts = read_Syllabus

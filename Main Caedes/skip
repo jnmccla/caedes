@@ -1,0 +1,75 @@
+// === skip ===
+// Fine. What build?
+
+// * Neg Charm, plus cool and tough
+//     ~jonesCharm -= 1
+//     ~jonesCool += 1
+//     ~jonesTough += 1
+// * Neg Tough, plus cool and sharp
+//     ~jonesTough -= 1
+//     ~jonesCool += 1
+//     ~jonesSharp += 1
+// * Neg Sharp and Charm, plu plus Tough
+//     ~jonesSharp -= 1
+//     ~jonesCharm -=1
+//     ~jonesTough += 2
+// * Neg Cool, plus charm and Sharp
+//     ~jonesCool -= 1
+//     ~jonesSharp += 1
+//     ~jonesCharm += 1
+// * No neg, plus tough
+//     ~jonesTough += 1
+    
+// - Perfect. Where would you like to go?
+// * [Hello Jones] ->hello_jones
+// * [First Class]
+//     Would you like plus 1 or minus one in Brigid?
+//     ** [Plus one]
+//         ~jonesLikes_Brigid += 1
+//         -> first_class
+//     ** [Minus one]
+//         ~jonesLikes_Brigid -= 1
+//         -> first_class
+//     ** [No Change]
+//         -> first_class
+// * [Recruitment time]
+//     Have you read the syllabus?
+//     ** Yes
+//         -> read_Syllabus
+//     ** No
+//         What stats would you like?
+//         *** [++ Everyone]
+//             ~jonesLikes_Brigid += 2
+//             ~jonesLikes_Felixe += 2
+//             ~jonesSuspicious_Brigid += 1
+//             ~jonesSuspicious_Osbourne += 1
+//             //~read_Syllabus = true
+//             ->recruitment_time
+//         *** [-- Everyone]
+//             ~jonesLikes_Brigid -= 2
+//             ~jonesLikes_Felixe -= 2
+            
+//             -> recruitment_time
+//         *** [Neutral everyone]
+//             -> recruitment_time
+// * [About to sign]
+//     Have you read the syllabus?
+//     ** Yes
+//         -> read_Syllabus
+//     ** No
+//         What stats would you like?
+//         *** [++ Everyone]
+//             ~jonesLikes_Brigid += 2
+//             ~jonesLikes_Felixe += 2
+//             ~jonesSuspicious_Brigid += 1
+//             ~jonesSuspicious_Osbourne += 1
+//             //~read_Syllabus = true
+//              -> recruitment_time.in_office
+//         *** [-- Everyone]
+//             ~jonesLikes_Brigid -= 2
+//             ~jonesLikes_Felixe -= 2
+            
+//              -> recruitment_time.in_office
+//         *** [Neutral everyone]
+//             -> recruitment_time.in_office
+//     ->DONE

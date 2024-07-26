@@ -1,0 +1,17 @@
+    /*
+    
+    For text :
+# AUDIO: src
+# AUDIOLOOP: src
+# IMAGE: src
+# LINK: url
+# LINKOPEN: url
+# BACKGROUND: src
+# CLASS: className
+# CLEAR
+# RESTART
+For choices (inky > 15)
+# UNCLICKABLE
+# CLASS: className
+    
+    */

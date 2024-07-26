@@ -1,0 +1,132 @@
+== questions
+
+~jonesTough = 0
+~jonesCharm = 0
+~jonesSharp = 0
+~jonesCool = 0
+
+1. You're at a party. What are you doing? 
++ [Socializing, even if I don't know anyone there.]  
+    ~alter(jonesCharm, 1)
++ [Singing karaoke or dancing.]
+    ~alter(jonesCool, 1)
++ [Horsing around, whether it's swimming in the pool, playing table tennis, arm wrestling -- something that gets the blood pumping.]
+    ~alter(jonesTough, 1)
++ [People watching.]
+    ~alter(jonesSharp,1)
+// * [Skip for testing] -> skip
+
+- 
+#CLEAR
+2. You have a free day. How do you spend it?
++ [Catching up on studying, reading, or any other work, professional or personal, I'm in the middle of.]
+    ~alter(jonesSharp,1)
++ [Hanging out with friends, or finding new friends to meet.]
+    ~alter(jonesCharm,1)
++ [Playing a sport, working out, maybe even a little Dance Dance Revolution.]
+    ~alter(jonesTough, 1)
++ [Something to challenge myself, whether it's beating a video game high score, tackling a new hobby, entering a bowling tournament, or anything in between.]
+    ~alter(jonesCool,1)
+
+-
+#CLEAR
+3. You have a big test or an important meeting coming up in the morning, and you're not prepared at all. How do you handle this? 
+
+{jonesCool < 2:
+    + [No sweat. You perform your best under pressure.]
+    ~alter(jonesCool,1)
+    ->question_four
+    }
+{jonesCharm < 2:
+    + [Get some friends together to help you prepare. Maybe they have something you can help them with, too!]
+    ~alter(jonesCharm, 1)
+    -> question_four
+    }
+{jonesSharp < 2:
+    + [You figure out the most important things to go over and focus on those, and make sure to get plenty of rest so you'll be at peak performance in the morning.]
+    ~alter(jonesSharp,1)
+    ->question_four
+    }
++ [Push through the night preparing. You can rest later.]
+    ~alter(jonesTough,1) 
+    -> question_four
+
+== question_four
+#CLEAR
+4. Pick an object.
+{jonesTough < 3:
+    + [A knife.]
+    ~alter(jonesTough,1)
+    ->question_five
+}
+{jonesSharp < 2:
+    + [A magnifying glass.]
+    ~alter(jonesSharp,1)
+    ->question_five
+}
+{jonesCharm < 2:
+    + [A tulip.]
+    ~alter(jonesCharm,1)
+    ->question_five
+}
+{jonesCool < 2:
+    + [A fidget spinner.]
+    ~alter(jonesCool,1)
+    ->question_five
+}
+
+
+== question_five
+#CLEAR
+5. What do you value most in yourself?
+{jonesSharp < 2:
+    + [My mind.]
+    ~alter(jonesSharp,1)
+    ->fin_stats
+}
+{jonesCharm < 2:
+    + [My personality.]
+    ~alter(jonesCharm,1)
+    ->fin_stats
+}
+{jonesTough < 3:
+    + [My physicality.]
+    ~alter(jonesTough,1)
+    ->fin_stats
+}
+{jonesCool < 2:
+    + [My levelheadedness.]
+    ~alter(jonesCool,1)
+    ->fin_stats
+}
+
+
+== fin_stats
+#CLEAR
+~jonesCool --
+~jonesSharp --
+~jonesTough --
+~jonesCharm --
+
+So you are <span class="change">{jonesCharm > 0:charming, }{jonesCool > 0:unflappable, }{jonesSharp > 0:intelligent, }{jonesTough > 0:hardy, }</span>and quite <span class="change">strange</span>.
+Is this accurate?
+* [Yes] -> finalQuestions
++ [No]
+    Very well, let's try this again. 
+    -> questions
+
+== finalQuestions
+#CLEAR
+Now choose your trusty means of transport.
+
+* [Scooter]
+    ~jonesRide = "scooter"
+* [Bicycle]
+    ~jonesRide = "bike"
+* [Skateboard]
+    ~jonesRide = "skateboard"
+    
+- With that most importand decision out of the way, let us begin.
+
+*[Begin.]
+-> hello_jones

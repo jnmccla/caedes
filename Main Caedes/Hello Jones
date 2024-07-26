@@ -1,0 +1,96 @@
+=== hello_jones ===
+#CLEAR
+In a different world, maybe it wouldn't have been you.
+Maybe it wouldn't have been your dad -- your family.
+Maybe it would have been someone who actually wanted this, or at least was good at it.
+Or, maybe, in every world, every timeline, you are always Jones, freshman animation student, staring at an email on your phone reminding you of the quickly approaching deadline to pay for your first semester of school.
+*Your phone vibrates[.] and a caller ID takes up the screen.
+-
+<b>NATIONAL GUARD - PECULIAR RECRUITMENT OFFICE</b>
+And there's the potential paycheck now.
+What do you do?
+* [Ignore it.]
+    ~alter(jonesLikes_Thomas,-1)
+    [You can feel your recruiter's disappointment through the phone.] #CLASS: disapprove
+     You ignore it. It's probably <>
+* [Answer it quickly.]
+    ~alter(jonesLikes_Thomas,1)
+    [Surely your recruiter will appreciate your promptness.] #CLASS: approve
+    You answer it before the first ring ends, but it's <>
+* [Let it ring for a bit before answering.]
+    You don't want to seem too eager, but it probably wouldn't look good to ignore it completely. When you do pick up, it's <>
+
+- just a robocaller reminding you about your appointment this afternoon, pretty soon after your next (and last) class of the day. You don't have a car yet, but i
+
+
+you're sure your trusty {jonesRide} will do the job of getting you there well enough. 
+The trusty {jonesRide} that you almost lose complete control over as someone tumbles into you. You recover quickly, though, and end up saving your accidental aggressor from falling face first onto the brick walkway.
+* [Whoops]
+-
+#CLEAR
+#AUDIO: dice.mp3
+~ temp diceRoll = roll_dice(jonesSharp)
+{ diceRoll >= 7:
+    ~ alter(jonesSuspicious_Brigid, 1)
+    [Sharp: {diceRoll}] #CLASS: pass
+    [Something seems off...] #CLASS: change
+    You think you smell something like burning hair, but you quickly forget about it as you help the person <>
+    - else:
+    [Sharp: {diceRoll}] #CLASS: fail
+    You help them <>
+}
+straighten up, and your face breaks into a wide grin. "Brigid?"
+
+Brigid looks at you through long strands of hair that she quickly pulls out of her face and ties into a loose ponytail. Her expression goes from worried to confused to surprised as she looks you up and down. "Jones? I didn't expect to see you on this side of campus!"
+ * [Joke]"I can tell, since you ran right into me."
+    She rolls her eyes, but can't help but smile. "I see a post-graduation summer didn't improve your sense of humor."
+    "Maybe it didn't improve <i>yours</i>!" you tease back.
+* "What does <i>that</i> mean?"
+    [Brigid Disapproves] #CLASS: disapprove
+    ~ alter(jonesLikes_Brigid, -1)
+    She looks a little crestfallen. "I just meant I thought all your classes would be in the art building, rather than over here where it's mostly literature and history and... stuff."
+    You feel a bit sheepish. "Yeah, I guess I just -- sorry."
+* "It must be fate!"[] you say with a grin.
+    [Brigid Approves] #CLASS: approve
+    ~alter(jonesLikes_Brigid, 1)
+    She laughs, smiling like you're the first good thing to happen to her today.
+
+- 
+*[Continue]
+-
+#CLEAR
+"So what <i>are</i> you doing on this side of campus?" Brigid asks.
+"Just heading to my last class of the day. Some weird elective that seemed like the perfect intersection of not too boring but not too hard to fill a general ed req, you know?" It wasn't <i>technically</i> a lie.
+Brigid nods. "S-same for me, really."
+*[Continue]
+-
+You perk up. Brigid was always more serious in her studies than you, and that, on top of different majors, made you worried the two of you would drift apart as friends. But she's taking a blow-off class, too? "Oh yeah? What class?"
+"Oh. Um." Brigid turns a bit red. "It-it's a class about the paranormal?" She looks at you sheepishly, as though expecting you to laugh at her.
+What a coincidence, you're <i>also</i> headeded to a class on the paranormal!
+
+* [Laugh]
+    ~ alter(jonesLikes_Brigid, -1)
+    [Brigid Disapproves] #CLASS: disapprove
+    You laugh. You can't help it! You did <i>not</i> expect Brigid to say <i>that</i>!
+    You realize your mistake almost immediately as Brigid flushes even redder and fixes her eyes on the groun.
+    "Oh, no! I just mean --" You stumble over your words trying to walk it back. "I'm in that class, too! Probably. Third floor of the Reede and Quill building? I was just surprised, is all."
+    Brigid looks up, still looking apprehensive, but manages a smile. "Oh, okay then."
+    You're not sure why she was so weird about taking that class, anyway. It's not like <i>she</i> has some vague family secret that led her to consider some absolutely bonkers conspiracy theories that couldn't possibly be true. No, you're probably in a unique position there.
+* [Reassure]
+    "Hey, nothing weird about that! I'm in that class, too, actually," you say, laying a comforting hand on her shoulder.
+    She still looks a little embarrassed, but mostly relieved.
+    Yep, definitely not weird to be in that class. No one could have any ulterier motives at all. Definitely nothing like some vague family secret that could hint at some deeper conspiracy. Not at all!
+* [Ignore the sheepishness]
+    ~ alter(jonesLikes_Brigid, 1)
+    [Brigid Approves] #CLASS: approve
+    "Oh, me, too!" you say excitedly. "Unless this school is weirder than I thought and there's more than one paranormal class."
+    Brigid manages a chuckle and looks relieved. She's always been too self-conscious for her own good. It's not like <i>she</i> has some vague family secret that led her to consider some absolutely bonkers conspiracy theories that couldn't possibly be true. No, you're probably in a unique position there.
+
+- {jonesLikes_Brigid >= 1:
+    You feel like there's something she's not quite telling you, but you're sure she'll get to it in her own time.
+    - else:
+        She seems really distant, though. Did the two of you grow apart that much during the summer?
+    }
+    * [Head to class] 
+    -> first_class
+   

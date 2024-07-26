@@ -1,0 +1,385 @@
+        === recruitment_time ===
+        #CLEAR
+    There's a sort of silent expectation when you're all loaded in the car and on the road, and you realize they're waiting on you to explain with no further prompting.
+        
+         {(jonesLikes_Brigid > 1) && (jonesLikes_Felixe > 1):
+             * [Tell them everything, even the weird stuff.]
+             -> tell_weird
+         }
+        * [Tell them what they need to know.]
+            -> tell_basic
+       
+    = tell_basic
+    #CLEAR
+    "My dad was in the National Guard." You think. "Apparently, in order to get some retirement... bonus? Or exemption. Or something. Well, he needed to refer a replacement. And I'm not exactly swimming in college scholarships," you explain.
+    Felixe lets out a whistle of surprise. "They're dropping the facade and just flat out working as an MLM scheme now, huh?"
+    Brigid plays with her hair, clearly thinking things over.
+    What you're leaving out is your dad heavily implied he <i>can't</i> retire until someone takes over for him. Which seems wild. There's no way that's legal, right? You've gotta be wrong; your dad can't be in some weird military cult thing. So you keep that to yourself.
+    * [Continue]
+    -> are_you_sure
+    = tell_weird
+    #CLEAR
+    ~brigid_facts += brigid_facts.knows_jones_weird
+    ~felixe_facts += felixe_facts.knows_jones_weird
+    "I think my dad's in some sort of cult," you say.
+    The car swerves and Felixe curses.
+    "<i>What</i>?" Brigid asks shrilly.
+    "I mean, uh--."
+    "Nope, no walking that one back," Felixe interrupts. "What the fuck do you mean your dad's in a cult and what does that have to do with where you're going? Do I need to turn around?"
+    "I said I <i>think</i> he's in a cult!" you say defensively. "All I know is he was in the National Guard or something and he's retiring, but he is heavily implying he <i>can't</i> retire until he finds a replacement, and, well, I don't know how else I'm going to get money for college anyway, so..."
+    "So you're going to take over for him," Felixe finishes.
+    "Yeah, I mean, probably? Maybe I'm reading too much into things! Like there's no way he <i>actually</i> can't retire until someone takes his place, right?" You laugh nervously, but Brigid and Felixe remain silent.
+    *[Continue]
+    -> are_you_sure
+    = are_you_sure
+    #CLEAR
+    Felixe pulls up to the mall and parks. It's not really a mall, not like in cities. It's a one story muted grey building, which looks less imposing than you feel it should.
+    "Are... are you really okay with this?" Brigid asks. She looks at you with all the Brigid-concern she can muster (which is quite a lot), and even though Felixe keeps his eyes on the road, you can tell he's waiting for your response.
+    * "Honestly, it could be fun[!"]<>
+        ~alter(jonesChange_Tough, 1)
+        ~alter(jonesSlaughter,1)
+        ~alter(jonesLikes_Felixe,-1)
+        , you know?" you put on a smile that's maybe not as forced as you thought it would be. "I mean, there hasn't been much of a need for the local National Guard to ship out," as far as you know, "and in the mean time I get to get ripped and shoot guns better, you know?"
+        "Whatever floats your boat, I guess," Felixe says, tone flat.
+        [Felixe Disapproves] #disapprove
+        [You feel yourself becoming more Tough] #CLASS: change
+        [You feel a calling to something you don't yet understand.] #CLASS: change
+    * You shrug. "It'll be fine[."]<>
+        ~alter(jonesChange_Cool,1)
+        , you say. "I don't think I've seen my dad go on any missions or whatever for a while, so maybe I just won't do a a lot after training? I'll probably just sign a four year contract and be out once I'm done with school." You hope.
+        [You feel yourself becoming more Cool] #CLASS: change
+    * "I am thinking of loopholes as we speak[."]<>
+        ~alter(jonesLikes_Felixe,1)
+        ~alter(jonesLikes_Brigid,1)
+        , you say with a forced laugh. "But I don't think there's a way out of this.
+        [Brigid Approves] #CLASS: approve
+        [Felixe Approves] #CLASS: approve
+        "I'm sure you'll think of something," Brigid says encouragingly.    
+    - 
+    
+    * [Continue.]
+    
+    -
+    #CLEAR
+   You take a deep breath and get out of the car. Then Felixe shuts off the engine and does the same; Brigid is already out and waiting on the sidewalk as soon as the car quiets. They both follow you to the entrance where you pause and look back at them. "You know you can't, like, come in with me, right?"
+   * [Continue]
+   -
+   #CLEAR
+   Felixe raises his eyebrows. "They've blocked off the whole mall for you to sign paperwork? {felixe_facts == felixe_facts.knows_jones_weird: Maybe this <i>is</i> a cult thing.}" His tone is so flate you almost don't catch the sarcasm.
+   Brigid glances at him, as though she also had to second guess his sincerity, then adds, "We can just wait in a store nearby. For, you know, moral support?" She smiles at you, though it wavers slightly.
+   
+   * [Be genuine.]
+   ~alter(jonesLikes_Brigid,1)
+    You smile and put a reassuring hand on Brigid's shoulder. "Thanks, really. I'll be fine, but it'll be nice to know you're nearby."
+    Brigid smiles back and puts her hand on top of yours.
+    [Brigid Approves] #CLASS: approve
+   * [Be sarcastic.]
+    ~alter(jonesLikes_Brigid,-1)
+    ~alter(jonesLikes_Felixe,1)
+    You roll your eyes. "I'm not dying, you know."
+    Brigid looks embarrassed, and Felixe snorts.
+    "But thanks. I'll see you once I'm done."
+    [Brigid Disapproves] #CLASS: disapprove
+    [Felixe Approves] #CLASS: approve
+    
+    -
+    You ruffle your hair, smooth it back out, and head into the mall.
+    * [Continue]
+    
+    -
+    #CLEAR
+    You don't notice where Brigid and Felixe end up going. In fact, you don't notice much at all until suddenly you're in front of the recruitment office, not even the small arcade that often threatens to distract you from whatever goal you walked in with.
+    The lighting in the reception area somehow feels more unnatural than the flickering flourescents that line the rest of the mall, but you chalk that up to your nerves. The woman at the front desk smiles placidly at you. She must recognize you from your previous visits (mostly with your dad), because, before you can say anything, she presses a button on her desk phone and says, "Lt. Col. Thomas, Ms. Jones is here to see you."
+    
+    * [Take a seat while you wait.]
+    * [Remain standing while you wait.]
+    
+    - 
+    #CLEAR
+    Before you can decide whether to sit in one of the provided chairs or stay standing, an almost gaunt looking man in the standard crisp dark blue uniform walks into the reception from a back door and smiles warmly at you.
+    "Ms. Jones! Pleasure to see you again. Follow me to my office?" He gestures to the door he just came through, and you follow wordlessly, still haven't not gotten quite used to the slight British lilt to his voice.
+    
+    * [Continue]
+    
+    -
+    #CLEAR
+    He leads you to the back, and quickly to the first door on the right before you can get a better look at the long sprawling hallway. This time you manage to get a glimpse of a sign pointing to an elevator. You've been to this mall a lot, and you can't make sense of how there's enough space here to have that long of a hallway, nevermind any <i>elevator</i>. If only you had taken the chance to explore the one time you broke in.
+    
+    * [Continue]
+    -> in_office
+    = in_office
+    #CLEAR
+    The office is as cramped and dingy as you remember; Thomas's large desk and worn but comfortable looking chair taking up most of the room, leaving just a small wooden chair on the other side for the guest to sit. The walls are lined with frames and shelves full of old military books, relics, certificates, and the like. You note with a little bit of glee the empty space where the crest you stole for Felixe used to be.
+    "You may sit," the lieutenant colonel says, gesturing to the wooden chair from his own seat.
+    *[Continue]
+    -
+    
+    {jonesTough > 0:
+        [TOUGH] #CLASS: change
+        You almost decide to stand in protest, but honestly there's not a lot of space to do that without standing weirdly off to the side.
+        }
+   
+   The chair is as uncomfortable as it looks, and squirming to find a better position only makes it worse.
+   "Now, then, to business. I assume you're ready to take my offer, yes?" Lt. Col. Thomas smiles and slides a stack of documents and a fountain pen over to your side of the desk.
+   
+   
+   -> receive_contract
+    
+   === receive_contract ===
+   
+   - (opts)
+   
+    + [Sign.]
+        -> sign_your_life_away ->
+    * [Read the contract.]
+        -> read_contract ->
+ 
+ - -> opts       
+
+
+= read_contract
+VAR readContract = true
+You skim through the documents. You've had the chance to read them before, but they don't make any more sense than any of the other terms you've had to agree to for college, or to open a bank account, or to play a phone game. You tried to ask your dad about it, but he just shrugged sheepishly saying he never understood the fine print, either.
+{jonesSharp > 0:
+    [SHARP] #CLASS: change
+    [Something seems off...] #CLASS: change
+    ~alter(jonesSuspicious_Thomas,1)
+    Some phrases catch your attention this time, though. Things that don't make sense, but maybe that's just because you're not a lawyer. But it looks like the whole "provide your replacement before you can leave" thing your dad was doing <i>was</i> legally enforceable.
+    }
+->->
+    
+
+   = sign_your_life_away
+ { read_contract : ->-> sign_for_real }  
+ ~alter(jonesLikes_Thomas,1)
+ ~alter(jonesSlaughter,1)
+ [Thomas Approves] #CLASS: approve
+ No point in delaying the inevitable. You slide the last page out from the pile.
+ "Eager, are we?" Thomas asks, smiling. "Just sign there." He points to the only blank line on the page.
+ [You feel a calling to something you don't yet understand.] #CLASS: change
+ 
+   -> sign_for_real 
+ = sign_for_real           
+ #CLEAR
+     You pick up the pen and try to sign, but it only scratches the paper. You look at Thomas in confusion. "It needs ink."
+     Thomas's smile doesn't waver. "You've heard of signing a contract in blood, yes? Well, we take that sort of thing quite literally here."
+     You look back down at the fountain pen and realize just how sharp it is.
+     This is your last chance to back out.
+     
+     - (top)
+     + [Sign]
+        -> sign_in_blood
+     * [Don't sign.]
+        You must.
+        -> top
+    
+    
+    = sign_in_blood
+    You take a deep breath in, then let it out, and try not to flinch as the pen slices into your fingertip.
+    #AUDIO: dice.mp3
+    ~ temp diceRoll = roll_dice(jonesTough)
+    ~ temp diceRoll2 = roll_dice(jonesCool)
+    {(diceRoll > 6) || (diceRoll2 > 6):
+        {diceRoll > 6:
+        [Tough: {diceRoll}] #CLASS: pass
+        - else:
+        [Cool: {diceRoll2}] #CLASS: pass
+        }
+        It didn't hurt as bad as you thought it would. You've had worse papercuts.
+    - else:
+        
+    {diceRoll > diceRoll2:
+        [Tough: {diceRoll}] #CLASS: fail
+        -else:
+        [COOL: {diceRoll2}] #CLASS: fail
+        }
+    You can't help it. Your body naturally does not <i>want</i> to be injured, so your finger jerks a little as you cut it. You pretend nothing happened, and don't let yourself look at Lt. Col. Thomas to see his reaction.
+    }
+    Blood quickly beads at the wound, and you try to keep your expression steady as you reach your hand out and press your fingertip to the line on the paper.
+    * [Continue]
+    -
+    #CLEAR
+    When you remove your finger, all you see is a deep red blotch bleeding into the lines of the parchment. You're not sure what you expected -- it to magically turn into your name or something? -- but you almost laugh at how mundane it is.
+    "Excellent!" Thomas exclaims with a clap of his hands that almost makes you jump.
+    You look up in time to see a wide grin that sets you on edge before it settles into something more business-like as he pulls a folder from one of his drawers and hand it to you.
+    You wipe the last specks of blood on your pants, then grab the folder and start flipping through it.
+    *[Continue]
+    -
+    #CLEAR
+     VAR askedAboutPapers = false
+    The folder is titled <b>Project Caedes</b>, which doesn't mean anything to you, and the files inside mostly have headings you'd expect.
+    <b>Training Schedule</b>, <b>Dress Code</b>, <b>Code of Conduct</b>, but then it starts to get... weird.
+    
+    * [Ask Thomas about it.]
+        ~alter(jonesSuspicious_Thomas,1)
+        ~alter(jonesChange_Sharp,1)
+        ~askedAboutPapers = true
+        [Something seems off...] #CLASS: change
+        "Uh, is this talking about monsters? Like, <i>monsters</i> monsters?" you ask, pointing at a list under the header <b>Situation Management</b>, which seemed to be code for "<b>How to Kill or Silence Anything Inconvenient</b>."
+        Thomas just smiles and says, "You'll see."
+        Even besides the monster stuff, some terms stick out.
+        {read_Syllabus:
+            Stranger, Desolation, Slaughter... Weren't these topics on your syllabus? Weird.
+            - else:
+            Where the heck have you seen them? You'll have to figure it out later.
+            }
+        [You feel yourself growing more Sharp] #CLASS: change
+            ** [Continue]
+            
+    * [Stay quiet.]
+        Whatever. You'll figure it out as you go. You don't want to delay getting the heck outta here.
+    
+    -
+    #CLEAR
+    "I'm sure you understand all of this is confidential..."
+    You reflexively roll your eyes. You're not an idiot.
+    Thomas doesn't miss the gesture and tuts. "I'm not finished, Ms.-- or should I say <i>Private</i> Jones. This is confidential, <i>however</i> I'm giving you leave to tell your two friends."
+    You stare at him for a second. You never talked to him about any friends, much less <i>two</i> of them. It was kinda you and Brigid against the world in the tail end of high school. "What?"
+    *[Continue]
+    -
+    He smiles. "Don't play coy, Jones. The two who arrived with you today and are currently waiting for you. Brigid and Felixe, I believe?"
+    "How did you --"
+    "We are the military," Thomas interrupts. "It is our buisness to know. What I was trying to say," he continues, "is most of the information you need will only be obtainable here, but that will be gone over more during your first training session. Tomorrow, correct?"
+    *[Continue]
+    -
+    You flip back to your schedule and nod. Looks like you're scheduled Wednesdays and Saturdays. For the next few weeks, at least. It doesn't seem too bad, all things considered. Some of your other classmates have mentioned working more days than that.
+    "Good. That will be all, then, Private Jones. Give Major Jones my best."
+    With that clear dismissal, you clutch your folder to your chest and head out, barely registering the receptionist's, "See you soon, Private Jones!" as you leave.
+    
+    *[Find Brigid and Felixe.]
+    -> find_others
+    
+    = find_others
+    #CLEAR
+    You find Brigid and Felixe loitering outside the Hot Topic, and you can't tell if it's funnier if they've been out here the whole time, or if you've found them after an unproductive shopping trip inside. Either way, you laugh as you approach, which gets both of their attention.
+    {jonesLikes_Brigid > 2:
+        Brigid smiles a little sheepishly as you approach.
+        - else:
+        Brigid frowns self-consciously as you approach.
+        }
+    {jonesLikes_Felixe > 0:
+        "So? How'd it go? Felixe asks with a touch of concern.
+        - else:
+        Felixe barely glances up from his phone. "That was quick. They didn't demand <i>too</i> much blood for the sacrifice then, I take it?"
+        You ignore him, even if the blood sacrifice comment hits unnervingly close to home, but Brigid looks uncomfortable.
+        {brigid_facts.knows_jones_weird:
+            "Maybe we shouldn't joke about that. You know, with what Jones already said?"
+            Felixe just shrugs, but frowns to himself.
+            - else:
+            "I'm sure it wasn't as bad as all that, right?"
+        }
+    }
+    * [Continue]
+    -
+    #CLEAR
+    You wave your folder. "Well, I'm on a pretty strict training schedule while they get me up to speed, but I was given explicit permission to share some of the juicy details with y'all."
+    Felixe raises his eyebrows. "With us? <i>Both</i> of us?"
+    You nod. "Both of you explicitly by name. Weird, right? Anyway, do you want highly classified military secrets or not?"
+    Brigid looks around anxiously. "Maybe... In the car? If that's okay with you, Felixe," she adds quickly.
+    Felixe shrugs. "Yeah, sure, why not?"
+    * [Continue]
+    -
+    #CLEAR
+    The three of you pile back into Felixe's car, but remain parked as you flip open the folder. You thumb through the first few pages to get to the juicy stuff.
+    "<b>Situation Management</b> doesn't sound foreboding at all," Felixe remarks dryly.
+    "Um.. What does it mean by <i>monsters</i>?" Brigid asks with a nervous laugh.
+    *[Continue]
+    -
+    {askedAboutPapers:
+        You shrug. "I asked, but he just said 'you'll see.' I guess it's some code for something?"
+        {brigid_facts.knows_jones_weird:
+            "Sounds like some cult business to me," Felixe chimes in.
+            "Not helping!" Brigid says.
+        }
+        - else:
+        "I have no idea. By the time I got to this, I just wanted to get the hell out of there, you know?" you admit. "It's gotta be code for something, though, right?"
+        {brigid_facts.knows_jones_weird:
+            "Sounds like some cult business to me," Felixe chimes in.
+            "Not helping!" Brigid says.
+        }
+    }
+    "Okay, but what about <i>that</i>?" Felixe asks, stabbing a finger at the <b>Category of Dangers</b> heading.
+    *[Continue]
+    -
+    {read_Syllabus:
+        The pieces click into place. "Professor Osbourne's syllabus? No way."
+        Brigid digs through her bag and pulls out her copy. "It <i>is</i>! There's basically nothing else on it but the 'List of Fears,' he calls it."
+        -else:
+        You stare blankly at the page. "Not really?"
+        But apparently something clicks for Brigid, because she rifles through her bag and pulls out what you recognize as the syllabus for the class you were all just in. "It's Professor Osbourne's 'List of Fears.' The Buried, The Corruption, The Dark, The Desolation, The End, The Eye, The Flesh, The Hunt, The Lonely, The Slaughter, The Spiral, The Stranger, The Vast, and The Web," she lists off. "It matches up exactly."
+    }
+    * [Express concern]
+        ~alter(jonesSuspicious_Osbourne,1)
+        ~alter(jonesSuspicious_Thomas,1)
+        [Something seems off...] #CLASS: change
+        You chew your lip. "That's -- that's weird, right? There's no non-weird reason why the military and my blow off class have these same categories."
+        {brigid_facts.knows_jones_weird:
+            "Especially with what you said about your Dad," Brigid says, a lock of hair tight around her finger.
+        }
+    * [Joke]
+    ~alter(jonesLikes_Brigid,-1)
+    ~alter(jonesLikes_Felixe,1)
+    [Brigid Disapproves] #CLASS: disapprove
+    [Felixe Approves] #CLASS: approve
+    "Clearly this is an elaborate ruse on Osbourne's part to get me to do my homework."
+    Brigid frowns. "He didn't give us any homework."
+    "Not yet," Felixe says.
+    -
+    *[Continue]
+    -
+    #CLEAR
+    "Maybe this is some more widley used categorization that Osbourne didn't mention? I mean, he <i>briefly</i> covered the fears, but maybe a lot of people use this, and it just didn't come up," Brigid suggests half-heartedly.
+    You look to Felixe, local author of supernatural-ish fiction.
+    He shifts under the attention. "I'm in the same class as you. If I knew everything, I'd be teaching it. But... I haven't heard of anything like that before."
+    {jonesSuspicious_Felixe > 0:
+        He doesn't seem sure of his own words. <i>Has</i> he seen something like this, then? You don't know him well enough to want to press further. It could be nothing.
+    }
+    *[Continue]
+    -
+    #CLEAR
+    You slap the folder shut. "Well, whatever's going on, we're not going to figure it out today. My first day of training is tomorrow, then we have class again Thrusday, so how about I'll just let you both know then?"
+    Felixe shrugs. "Sounds good enough to me."
+    But Brigid doesn't look as convinced.
+    *[Continue]
+    -
+    "<i>Obviously</i> I'll text you first if something crazy happens," you say. "Best friends get priority, right?" You hold our tyour fist.
+    {jonesLikes_Brigid > 1:
+        She sighs with a smile and bumps your fist with hers. "I guess that works," she says with faux exasperation.
+        - else:
+        "Fine," she says, clutching her arms to herself, and leaving you hanging.
+    }
+    Felixe clears his throat and starts the car.
+    "Back to school, then?"
+    
+    *[End of the day.]
+    -> statsPage
+    
+    === end_Day ===
+    You don't have any more classes today, so when Felixe drops you off at school, you head to where you left your {jonesRide}.
+    {jonesLikes_Brigid > 0:
+        *[Talk to Brigid]
+        -> talk_to_brigid
+    - else:
+        Brigid apparently has another class, so she rushes off before you have a chance to say more than "See you tomorrow."
+        *[Head home.]
+        -> head_home
+    }
+    
+    ===head_home
+    
+    
+        * [See your stats] -> statsPage
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        

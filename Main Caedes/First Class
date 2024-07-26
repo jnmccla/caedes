@@ -1,0 +1,240 @@
+VAR interrupt = false
+VAR knownames = false
+
+    === first_class ===
+    #CLEAR
+ It was a quick walk to the building and up a couple flights of stairs and to room 313. You were almost ten minutes early, much earlier than you would have been if you hadn't run into Brigid (ADHD is a hell of a drug). To your surprise, not only was the classroom open, a student was already sitting in the front row of the room, writing furiously in his notebook, not sparing either you or Brigid a glance as you enter. Normally that wouldn't bug you, but something about him seems familiar. If only you could get a better look at his face...
+    "Welcome Brigid and Jones," the professor (a middle-aged man who looked like the poster child for the profession) greets, smiling widely and jarring you out of your musings.
+    
+    * "How'd you know our names?"
+    -> know_names
+    
+         
+    * ["Hi."]
+    -> uh_hi
+ 
+     == classBegins 
+ #CLEAR
+    
+    Only a handful more students wander in by the time the school's clock tower chimes out the new hour, and you don't think you recognize any of them. You expect the professor to give them the same greeting he gave you, but he merely glances at them and nods politely as they take their seats, most of them toward the back like you and Brigid, and none joining the man in the front row.
+    It feels weird calling a college student a man, but he definitely looks older than any of your other classmates by a few years at least. How in the world do you know him?
+      * [Continue]
+    -
+    #CLEAR
+    After the last chime rings out, the professor stands up, leisurely walks to the door and closes it with an uncomfortably loud click, then to the whiteboard behind his desk.
+  
+    "My name is Professor Osbourne, and this is Paranormal 101," Osbourne says. He writes as much on the board with a bright red marker. "As this is a class that is neither required nor recommended for any major, and is also open to unenrolled students, I assume you are all here because of your love for the occult and the stories we have made about them through the millennia." He turns around and smiles at the class. You see the man in the front nod absently, but no one else reacts.
+    * [Continue]
+    -
+    #CLEAR
+    #AUDIO: dice.mp3
+    ~ temp diceRoll = roll_dice(jonesSharp)
+    {diceRoll > 6:
+        ~ alter(jonesSuspicious_Brigid, 1)
+        [Sharp: {diceRoll}] # CLASS: pass
+        [Something seems off...] #CLASS: change
+        Except Brigid, who is winding her hair around her finger -- one of her tell-tale nervous habits.
+       - else:
+        [Sharp: {diceRoll}] # CLASS: fail
+    }
+    Unphased, Professor Osbourne continues, "I am required to provide a syllabus, but rest assured I will be more than flexible should there be any extenuating circumstances that requires the lesson plan be shuffled around." With this, he begins passing out the small stack of single-page syllabi. You get the impression he's resisting a wink when he hands yours to you. Why is this guy so weird?
+    *   [Read syllabus]
+        ->read_Syllabus
+    *   [Ignore the syllabus]
+        ~ alter(jonesChange_Sharp, -1)
+          Yeah, you're not reading that. Even if you have your own reasons for being here, it's <i>still</i> a blow-off class, and you doubt the syllabus has anything important on it.
+          [You feel yourself grow less Sharp.] #CLASS: change
+          **[Continue class] -> continue_Class 
+        
+== continue_Class 
+#CLEAR
+    When the professor finishes, he walks back to his desk and stands next to it, facing the students. "Now," he says, eyes sweeping meaningfully across the room, "who would like to give a shot at answering why they think the study of the unnatural still intrigues and excites us, even in this modern day of science?"
+    The man in the front row raises his hand almost immediately.
+    "Ah, yes, Felixe..." Professor Osbourne's smile fades slightly, and he tilts his head, brow ever so slightly wrinkled. "What was your last name again?"
+    {know_names:
+        * Maybe he should check his fancy piece of paper.
+        -> hello_felixe
+    - else:
+        *[Continue]
+        -> hello_felixe
+    }
+    == hello_felixe
+    "Felixe is fine," the man says dismissively. "We, as a species, have an interest in the paranormal because we are desparate to explain the unexplainable. Since science will never be able to fully explain everything, paranormal explanations and intrigue will reamin."
+    The professor's smile is broad and more genuine than it seemed before. "As expected of our local fantasy author."
+    * We have a local fantasy author? [] Well, Brigid seems to recognize him, at least. <>
+    * Is that why you recognize him? [] Maybe it's as simple as seeing him around bookstores or something. Brigid seems to recognize him, too. <>
+    -
+    You hear her make a startled, "Oh!" You catch her eye and she signals that she'll explain after class. You think. Really that hand wave could have technically meant several things. Nah, she'll definitely tell you after class.
+    * [Continue]
+    -
+    #CLEAR
+    "However," Osbourne continues, "you did not take it all the way back to the source."
+    Felixe, who had gone back to his writing, pauses, but doesn't look back up.
+    Apparently the professor takes this as his signal to continue. "Why are we so obsessed with explaining the unexplainable?"
+    "Natural human curiosity," Felixe answers swiftly.
+    Professor Osbourne tuts, but his smile remains. "A common error in thought. It is <i>fear</i> that drives us. Fear of the unknown. Fear of the strange. Fear of the other. We give those fears a name, an explanation, and sometimes even create wards or rituals to pretend we have some control over what we can't see or understand."
+    * Wards?[]
+    - 
+    #CLEAR
+    #AUDIO: dice.mp3
+    ~ temp diceRoll = roll_dice(jonesSharp)
+    {diceRoll > 6:
+    [Sharp: {diceRoll}] #CLASS: pass
+        That rings a bell to you, but you can't put your finger on why. Something related to how you know Felixe? You'll think about it more after class.
+    - else:
+    [Sharp: {diceRoll}] #CLASS: fail
+        The thought is gone as soon as you try to grasp it. Probably nothing.
+        }
+    Felixe snorts and resumes writing in his notebook.
+    The professor's smile freezes in place and his eyes narrow. "You disagree?"
+    Felixe sighs heavily and puts his pencil down with a deliberateness you've seen your teachers use when they're making a point of being done with whatever shenanigans you've been up to. He looks at the professor silently for a moment. "Yes," he finally says, then shrugs, "but it's your class, not mine."
+    * [Continue]
+    -
+    #CLEAR
+    Is this... how people talked to eachers in college? Professor Osbourne seems content with the answer, but maybe that's only because Felixe is an adult.
+    Well, <i>you're</i> an adult, too, but, like, a <i>real</i> adult. A published author, apparently.
+    * [Interrupt] -> i_aint_scared_of_no_monsters
+    * [Let them keep going] 
+    Professor Osbourne spreads his arms graciously, "If you have a critique, by all means, don't hold back." His smile feels like a trap, and you catch Brigid fidgeting nervously out the corner of your eye.
+        "I think I've made my critiques pretty clear already, and despite the impression I seem to be making, I <i>am</i> here to learn, even if I don't agree with everything being said. You have all semester to convince me."
+        Trap averted?
+        "That seems reasonable enough. Though I doubt it will take me all semester to do so."
+        Felixe just snorts and goes back to his writing, and the professor doesn't pursue it any further.
+        ** [Make it through the rest of class]  -> totallyNotBoring
+    == i_aint_scared_of_no_monsters
+    #CLEAR
+    ~interrupt = true
+    "I'm not scared of monsters," you say abruptly, barely realizing you had the thought before it left your mouth.
+    Felixe glances back at you for a second, but Brigid and the other students turn to look between you and the professor expectantly.
+    Osbourne's first smile is back, the one where it seems like he's laughing at you. "Ms. Jones, yes?" he asks, as though he didn't greet you by name when you first came in. "Would you care to elaborate?"
+    
+    *[Answer seriously]
+        ~alter(jonesChange_Tough, 1)
+        ~alter(jonesSlaughter, 1)
+        ~alter(jonesEnd, 1)
+        "I mean, monsters aren't real, right?" There's an awkward silence as they all look at you. "And, I mean, even if they were, I know how to use a gun, so, blam! blam! You know." You mime shooting a shotgun, like the one your dad started teaching you how to use when you were young. No one says anything, still, and you shrug. "Not afraid of what I can defend myself against, I guess."
+        [You feel yourself grow more Tough.] #CLASS: change
+        [You feel a calling to something you don't yet understand.] #CLASS: change
+    *[Give a goofy answer]
+        ~alter(jonesChange_Charm,1)
+        ~alter(jonesLikes_Felixe, 1)
+        ~alter(jonesLikes_Brigid, 1)
+        [Brigid Approves] #CLASS: approve
+        [Felixe Approves] #CLASS: approve
+        "I will simply smooch them," you say matter-of-factly. Brigid giggles with most of the rest of the class, and you think you even hear Felixe let out a snort.
+        [You feel yourself growing more Charming.] #CLASS: change
+    *[Cause a distraction]
+     
+        ~alter(jonesChange_Weird,1)
+        ~alter(jonesLikes_Brigid,1)
+        ~alter(jonesLikes_Felixe,1)
+        [Brigid Approves] #CLASS: approve
+        [Felixe Approves] #CLASS: approve
+        Just as you didn't think before saying that, you don't think before grabbing the piece of paper you've been idly doodling on, balling it up, and tossing it all the way across the classroom and into the trashcan. Where it burst into flames?? Fire shoots out the top of the trashcan before putting itself out just as quickly. Before you have a chance to figure out how the hell that happened, all eyes turn to you.
+        **[Continue]
+        "Tada!" You stand and give a bow, as though that was all completely intentional. Some students clap, while the others just turn back to the front. You see Felixe shake his head. But in a good way. You think. You look at Brigid, who just smiles and gives you a thumbs up.
+        [You feel yourself becoming more Weird.] #CLASS: change
+    - 
+    You can't read Osbourne's expression at all this time, and it makes you uncomfortable. He breaks his gaze away and looks to the other students. "Anyone else have any insight? No? Then we'll move on."
+    * [Make it through the rest of class] -> totallyNotBoring
+    
+    == totallyNotBoring 
+    #CLEAR
+    The rest of class was much less exciting than the first few minutes. Professor Osbourne just talked more about fear and superstition and how it affected humanity's view on the occult in different ways in different societies. He also said something about consistent categories of fears <> 
+        {read_Syllabus:
+            (was that the list of topics on your syllabus?) <>
+            }
+        and the sort of myths and urban legends they produce, but by that point, you were {~half asleep|busy doodling}, and really only caught that he'd be going more in depth with them throughout the semester, so you're sure it was nothing to important.
+        * [Continue]
+        -
+        #CLEAR
+        Finally, the end of class bell rings.
+        You almost dash out the door, like you do for most of your classes, but you remember your looming appointment, and, well, it looks like Brigid is dawdling behind so you hang back with her.
+        * [What's Brigid waiting for, anyway?]
+        - 
+        #CLEAR
+        Brigid is standing a few feet behind Felixe's desk, twirling her hair around her finger, while he stays sitting, writing, as though he didn't hear the bell or notice most of the other students rush out around him.
+        Professor Osbourne notices this, too. "Did you have a question, Felixe?"
+        Felixe doesn't answer for a few moments, still writing, then puts down his pencil and starts packing away his things into his messenger bag. When he's finished, he finally looks up at the professor and says, "No, I was just finishing some thoughts."
+        "Oh?"
+        *[Continue]
+        -
+        #CLEAR
+        Felixe ignores the prompt and instead gestures to you and Brigid. "They might, though."
+        The professor looks expectantly to the two of you, and you look expectantly at Brigid.
+        Brigid glaces between the three of you. "I-it's nothing. Uh, Jones? Did you have something?"
+        * [No.]
+            ~alter(jonesLikes_Brigid, -1)
+            [Brigid Disapproves.] #CLASS: disapprove
+            You look at Brigid in confusion. "No? It looked like you wanted to talk to --"
+            "It was nothing!" Brigid says, quickly cutting you off.
+            "Oh." Guess you were wrong.
+        * [Make something up to cover for Brigid.]
+            ~alter(jonesLikes_Brigid,1)
+            [Brigid Approves] #CLASS: approve
+            {read_Syllabus:
+              ~alter(jonesLikes_Osbourne, 1)
+            [Professor Osbourne Approves] #CLASS: approve
+            "Oh. Yeah. Totally," you say, brain racing. "I, uh, was just wondering if those fears you mentioned were what's listed on the syllabus?"
+            - else:
+            "Oh. Yeah. Totally," you say, brain racing. "I, uh, was just wondering if we'll be having any tests in this class?"
+            }
+        -
+     
+        "Hey, wait, I know you," Felixe says before Osbourne can respond.
+        You stare at him blankly for a moment. Then you remember.
+        * [Wards!]
+        -
+        #CLEAR
+        "Oh, yeah! The crest-thingy!" you exclaim, happy to have the pieces click into place. Back when you were in one of your "I hate that military enlistment is my best financial option" moods, you saw a Craigslist ad looking for a handful of wartime relics that were apparently used to ward off the evil eye or something. You're pretty sure Lt. Col. Thomas never realized it was missing. "Has it been... working?" Not that you believed magic wards were real. Probably.
+        Felixe snorts. "Not the way I think you mean, but it's been useful to study. Thanks again, by the way."
+        * [Continue]
+        -
+        #CLEAR
+        "I e-mailed you," Brigid adds, and looks sheepish when you look surprised. "Once. I mean. You have me some, er, writing advice? About, you know, f-fire magic?"
+        Felixe's disinterested but polite smile he wore when she first started talking turned into the genuine article. "Oh, it's you! Yeah, how's your book going?"
+            * Brigid was writing a book?
+            -
+        Brigid tucks her hair behind her ears, subtly tugging at the strands as she does so. "Um, it's a work in progress, you know. Your advice helped, but it's... never so easy." She sighs and her shoulders slump.
+        Felixe stands up, slings his bag over one shoulder, and looks like he's about to reach for Brigid before changing his mind, instead gripping his bag's strap. "There's no one right way to do things. If my advice isn't cutting it, keep looking around and experimenting on your own. Just keep at it and you'll get there, okay?"
+        Brigid smiles half-heartedly. "Thanks."
+        She must be <i>really</i> into this book. You'll have to ask her about it later.
+        * [Continue]
+        -
+        #CLEAR
+        Professor Osbourne clears his throat. "So none of you require my assistance...?"
+        You check your watch. Shit. You need to leave ASAP if you want to  get to your appointment in time.
+        "Something the matter, Ms. Jones?" the professor inquires.
+        "I'm just running a little late, is all," you admit. "Gotta get to the mall in twenty minutes, which will be pretty tight on my {jonesRide}."
+        "You're not trying to ride your {jonesRide} all the way to the mall, are you? In that short of time?" Felixe asks incredulously.
+        
+        * [Be defensive.]
+        I've done it before!" you say, trying not to sound too much like a stubborn kid.
+        * [Laugh it off.]
+        ~alter(jonesLikes_Felixe,1)
+        [Felixe Approves] #CLASS: approve
+        "Well, my Lamborghini is in the shop. You know how it is," you joke.
+        
+        -
+        Felixe rolls his eyes. "Just let me give you a ride. As a thanks for the ward, if you need to view it as that. That way your friend can come with you for emotional support, since whatever this appointment is seems pretty important."
+        You look at your watch again. You really can't afford to miss this appointment. "Yeah, alright," you relent. "Do you actually want to come, Brigid?"
+        {jonesLikes_Brigid > 3:
+            Brigid nods enthusiastically. "Yes, of course! I didn't know you had anything important going on today, but if you need moral support, I'm there!"
+        - else:
+            Brigid hesitates for a moment, and even though you hadn't planned on asking her to come along in the first place, you're suddenly worried she won't. She eventually nods, "Yeah, I mean, I don't know what's going on, but if you need support, I'll be there."    
+        }
+        * [Continue]
+        -
+        #CLEAR
+        "Okay, well, it's a car, not a teleporter, so let's get going, yeah?" Felixe says, heading for the door, ushering the two of you in front of him. He stops in the doorway, then turns back to Osbourne. "See you Wednesday, professor."
+        You look back, too, and see Osbourne frowning just a little. "Yes, I will see you three Wednesday." With that, he shuts the door behind you.
+        {jonesSuspicious_Osbourne > 1:
+            "What a weird guy," you say as you turn to walk down the hall toward the stairs.
+            Felixe and Brigid murmur their agreement, neither seeming to want to talk more about him.
+        -else:
+        You pay him no more mind as you walk down the hall toward the stairs.
+        }
+        You can worry about Wednesday Wednesday. Right now, you need to steel yourself for your appointment with Lieutenant Colonel Thomas.
+        
+        
+        * [Let's go to the mall.] -> recruitment_time

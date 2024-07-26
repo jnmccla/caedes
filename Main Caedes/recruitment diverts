@@ -1,0 +1,248 @@
+=== talk_to_brigid
+Brigid tags along. Her next class isn't for another hour, and she's in no rush to get to it.
+It's a good chance to talk if you have anything on your mind.
+
+{jonesSuspicious_Felixe > 0:
+    Maybe even a safer time to talk without Felixe here. 
+    {jonesLikes_Felixe > 0:
+        You don't hate the guy, but you're getting some weird vibes from him. Having private conversations before you figure him out won't hurt.
+        - else:
+        You're getting bad vibes from the guy. He hasn't done anything to warrant them yet, you guess, but it's nice to have a chance to talk to Brigid without him around.
+    }
+}
+- (opts)
+What do you want to talk about?
+{jonesSuspicious_Brigid > 0:
+    * "Is everything... Okay?"
+    ->brigid_okay
+    }
+* "You're writing a book?" <>
+    ->book
+* "What do you think of Felixe?"
+    ->felixe
+* "What do you think of Professor Osbourne?" <>
+    ->osbourne
+* [Wait for Brigid to say something.]
+    -> wait
++ [Enough talking. Time to head home.]
+   You say your goodbyes, hop on your {jonesRide}, and head home. 
+    -> head_home
+- -> opts
+
+= keep_talking
+#CLEAR
+->opts
+
+= felixe
+    "He seems nice enough," she says. "Class seems like it's going to be a little... weird with him?"
+    You laugh. "Yeah, that back and forth with Osbourne was wild. I think my other professors would kill me if I talked to them like that."
+    "Exactly! {interrupt:I can't <i>believe</i> you managed to get in the middle of that. I wonder how long it would have gone otherwise. If |Felixe seemed to put an end to it, but if} he's that opinionated on the first day of class, I wonder what the rest of the semester will be like."
+    "For real! Maybe it'll be more exciting than a normal blow off class."
+    Brigid giggles. "What about you?"
+    
+    * "He seems fun[."]," you say. "I think we vibe on some of the same frequencies."
+        "Should I be worried?"
+        "What? No! You're my bestie for life!" you insist.
+        Brigid rolls her eyes with a smile. "I was more meaning on if you've found a potential partner in chaos."
+        You laugh. "We'll see!"
+        ~alter(jonesLikes_Felixe,1)
+        {
+        - jonesLikes_Felixe > 2:
+            You realize you genuinely mean it. You haven't known the guy for long, but you think you're going to have a pretty good semester in the same class.
+        - jonesLikes_Felixe > 0:
+            You're not quite as sure as you seem about how you vibe, but you'd like to think you will more in the future
+        - else:
+            Honsetly, your vibe so far hasn't really matched with what you're saying. Maybe you're hopeful for a better relationship? Or maybe you just want to put a good spin on it for Brigid.
+        }
+        [You feel yourself growing closer to Felixe.] #CLASS approve
+    * "He seems alright.["] Still figuring out his vibe, I guess."
+        "I'm sure you'll get along great. I mean, he did volunteer to drive you to the mall and back."
+        "True! I just need to get to know him better."
+         {
+        - jonesLikes_Felixe > 1:
+           It seemed like you got on a little better than you're letting on, but maybe that was all just a coincidence. Like you said, you're still figuring out his vibe.
+        - jonesLikes_Felixe == 1||jonesLikes_Felixe==0:
+            Brigid likes to put a positive spin on things, and you don't mind, but you're also not super invested in getting to know the guy more.
+        - else:
+            That's putting it lightly, really. He really seems to rub you the wrong way. Or you him. Maybe that's just a coincidence, or maybe you're trying not to be so negative about it to Brigid.
+        }
+    * "I don't think we really get along[."]," you admit.
+        "Oh, no! I thought since he offered to drive you, you might have a better opinion of him. Not that you have to like everyone who does something nice for you, of course!" she quickly adds. "Or that doing something nice means they like <i>you</i>, or, well." She sighs. "You know what I mean."
+        "I know what you mean," you agree with a smile. "But we've only known each other for what, a couple hours tops? Plenty of time for things to change, one way or the other."
+       ~alter(jonesLikes_Felixe,-1)
+         {
+        - jonesLikes_Felixe > 0:
+           Looking back on the day, it <i>did</i> seem like you were getting along, but appearances can be deceiving. Just because you agreed on a few things or shared a sense of humor doesn't mean you like the guy, or he you.
+        - jonesLikes_Felixe==0:
+            It didn't seem like you got on that poorly, but not actively being antagonistic doesn't mean positive or even neutral feelings. Hopefully you won't have to see him much more after class, even if you did appreciate the ride.
+        - else:
+            Yeah, you really didn't vibe with the guy. The ride was fine, but you probably would have been fine on your {jonesRide} anyway. The less you have to interact with him from now on, the better.
+        }
+        [You feel yourself growing more distant from Felixe] #CLASS disapprove
+    
+   -
+    {jonesSuspicious_Felixe > 0:
+        * [Share suspicions.]
+        You hesitate for a second. It's not like you have a lot to go on by now, just a balled up piece of paper in his backpack.
+        Brigid notices your pause. "Is there something else?"
+        "Well..." You rub the back of your head. "It's probably nothing, but after reading the syllabus, I was kinda looking around the room to see how other people reacted, because it was weird, right?"
+        "Yes, especially with what we know now, the syllabus is <i>extremely</i> weird," Brigid agrees.
+        "Right! So I looked at Felixe, because at the time I couldn't remember why I recognized him, but the syllabus wasn't on his desk. It was crumpled into a ball in his bag." 
+        "And that's... weird?" Brigid asks doubtfully.
+        Now that you say it out loud, maybe it really <i>isn't</i> that weird.
+            ** [Stick to your guns.]
+                "Yeah! I mean, does that guy give off the impression of someone who'd just toss something important for class?"
+                "Maybe?"
+                "After his back and forth with the professor? And all the notes he was taking?"
+                "I'm not sure they were notes, but... I get your point.
+                 ***[Talk about something else]
+                ->keep_talking
+            ** [Back down.]
+              You laugh. "You're right, it's not. I think I was all in my head at the time with the looming appointment. The guy's allowed to toss his syllabus without me making a big deal out of it."
+              "It was a pretty stressful appointment. I think you're allowed some paranoia," Brigid says.
+               ***[Talk about something else]
+              ->keep_talking
+        }
+    *[Talk about something else]
+            ->keep_talking
+    
+= osbourne
+ you ask.
+ "He's... interesting?" Brigid says with a shrug.
+ "That's one way to put it," you say with a laugh. <> {jonesSuspicious_Osbourne > 0:
+    "I think maybe there's something shady going on with him."
+    "Like with the syllabus?"
+    "Yeah, that, but also... I mean, he kept looking at us weird? You, me and Felixe. He barely glanced at anyone else. Not to mention {knownames:
+        he knew our names, he knew <i>my</i> name preference. No one knows that."
+        Brigid considers this. "He said it was on the student information sheets."
+        "Yeah, but I've thought about that since then, and all my other professors have call me Olivia before I correct them."
+        }
+        Brigid twists a strand of hair around her finger. "I guess I've gotten some weird vibes from him, too. I just don't think it's anything substantial, outside of the syllabus, of course."
+        You shrug. "It's not like there's anything to do about it. He's still our teacher and all. Just thought I'd mention it."
+        Brigid gives you a reassuring pat on the shoulder. "We have all semester to figure him out."
+        - else:
+        "The syllabus thing is weird, but like we said before, that could be a wild coincidence."
+        Brigid shrugs. "Maybe. I guess we have the semester to figure that out."
+        }
+    "What about you? Do you like him? Or think he'll be a good teacher, at least."
+    
+    * "Yeah, it seems like it will be a fun class[."]," you say with a grin.
+    ~alter(jonesLikes_Osbourne,1)
+        {jonesSuspicious_Osbourne > 0:
+            "Even with your suspicions?" Brigid asks.
+            "Yeah, I mean, weird things are weird, but I still gotta take the class, you know? Might as well enjoy it.
+        }
+       [You feel yourself growing closer to Osbourne]  #CLASS approve
+    * "I'm really dreading this semester[."]," you admit. "The guy seems like a weirdo, and the syllabus stuff doesn't help.<>
+    {jonesSuspicious_Osbourne > 0: 
+        Not to mention the other stuff."
+            - else:
+            "
+            }
+        Brigid frowns. "I hope the semester doesn't end up being too miserable for you. This was supposed to be an easy class for you, and you have enough on your plate as it is."
+        You rub your eyes with a sigh. "Yeah, but what can you do?"
+        ~alter(jonesLikes_Osbourne,-1)
+        [You feel yourself growing more distant from Osbourne] #CLASS disapprove
+    * "A class is a class[."]," you say with a shrug.
+        "Fair enough," Brigid says.
+    -
+  * [Talk about something else.]
+    ->keep_talking
+= wait
+    You walk together in silence for a moment, then Brigid says, "Are you really okay, Jones? About everything?"
+    * "Not at all[."] <>
+        ," you say. "But what can I do about it? I signed the paperwork. {readContract:It all looked pretty legally binding to me. }The decision's been made."
+    * "It is what it is[."]<>
+        ," you say with a shrug. "No use dwelling on it, you know?"
+    * "Actually, yeah!"
+        ~alter(jonesLikes_Brigid,-1)
+        ~alter(jonesSlaughter,1)
+        [Brigid Disapproves] #CLASS: disapprove
+        Brigid looks surprised at your enthusiasm. "Really?"
+        "Really, really," you say. "It could be exciting. I mean, tell me you don't want to figure out what they mean about monsters and stuff." You grin and nudge her with your elbow.
+        She clutches her arms to her chest. "I guess..." She shrugs with a frown. "If this is what makes you happy, then I guess that's good?"
+        "It'll be fine," you assure her.
+        [You feel a calling to something you don't yet understand.] #CLASS: change
+    -
+     *[Talk about something else]
+    ->keep_talking
+
+= book
+    you ask, trying to sound casual.
+    "A book?" she looks confused.
+    
+    * "The one you emailed Felixe about?"
+        "Oh, that!" she says. "Yeah, it's -- it's complicated." She looks a little flustered.
+        ** "Do you wanna tell me about it?"
+            Brigid fidgets with her hair. "Not right now, Jones. Soon, maybe?"
+            "Yeah, okay."
+            "I'm sorry. I'm just not ready."
+            ***[Talk about something else]
+            ->keep_talking
+        ** [Drop it.]
+            What do <i>you</i> know about writing books? It sounds like it would be complicated. "Okay. Well, good luck," you say.
+             ***[Talk about something else]
+            ->keep_talking
+    * [Drop it.]
+        ~alter(jonesLikes_Brigid,-1)
+        [You feel yourself growing more distant from Brigid.] #CLASS: disapprove
+        Maybe it wasn't that important, or maybe she's lying. Either way, you guess it isn't your business. "Nevermind," you say.
+        "O-okay."
+         **[Talk about something else]
+        ->keep_talking
+    
+  = brigid_okay
+    ~alter(jonesLikes_Brigid,1)
+    [Brigid Approves] #CLASS: approve
+    Brigid freezes for a second. "O-Of course! Why do you ask?"
+    * [Push her.]
+        ->push
+            
+    * [Let it drop.]
+        You shrug. "No reason, I guess. Just making sure. We haven't talked most of the summer, you know?"
+        She looks a little relieved, and smiles. "I know, but now we're in the same class, so we'll have plenty of time to catch up!"
+         **[Talk about something else]
+        ->keep_talking
+
+= tell_brigid_cult
+        ~alter(jonesLikes_Brigid,1)
+        [Brigid Approves] #CLASS: approve
+    ~brigid_facts += brigid_facts.knows_jones_weird
+            "Here, as a sign of good will..." You sigh. This is harder to say than you thought. "I wasn't completely honest before. About my dad and the recruitment thing. He always kinda hinted that me joining wasn't just some bonus thing, but that he <i>can't</i> retire until he gets a replacement. <>
+                {readContract:
+                    It said as much in the contract I signed, too.
+                }
+            It's all just... really weird."
+            "What the shit!" Brigid exclaims. "Jones, are you serious?"
+            You laugh a little. "Completely."
+            She thinks it over for a bit.
+               "I wan't to tell you Jones, I do. I'm just... not ready."
+        ~jones_facts += brigid_hints
+        "Well, I'm here when you're ready, then."
+        *[Talk about something else]
+         ->keep_talking
+      
+= push
+    You shrug. "Something seems off, is all. You know you can talk to me about anything, right? <>
+        {brigid_facts == brigid_facts.knows_jones_weird:
+            I mean, I told you about the weird cult-thing my dad and I guess <i>I</i> might be in."
+              "I wan't to tell you Jones, I do. I'm just... not ready."
+        ~jones_facts += brigid_hints
+        "Well, I'm here when you're ready, then."
+            - else:
+            I always have your back."
+            "I know," she says.
+            ** [Tell her about the potential cult.]
+            -> tell_brigid_cult
+        }
+            ** [Let it drop.]
+            "Well, I guess if there is ever anything, I'm here for you."
+            She smiles. "I know, Jones."
+             ***[Talk about something else]
+            ->keep_talking
+        
+        
+
+
+
+->statsPage
