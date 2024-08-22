@@ -91,7 +91,7 @@ VAR knownames = false
     * [Continue]
     -
     #CLEAR
-    Is this... how people talked to eachers in college? Professor Osbourne seems content with the answer, but maybe that's only because Felixe is an adult.
+    Is this... how people talked to teachers in college? Professor Osbourne seems content with the answer, but maybe that's only because Felixe is an adult.
     Well, <i>you're</i> an adult, too, but, like, a <i>real</i> adult. A published author, apparently.
     * [Interrupt] -> i_aint_scared_of_no_monsters
     * [Let them keep going] 

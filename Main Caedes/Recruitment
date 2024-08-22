@@ -262,7 +262,7 @@ You skim through the documents. You've had the chance to read them before, but t
         - else:
         Felixe barely glances up from his phone. "That was quick. They didn't demand <i>too</i> much blood for the sacrifice then, I take it?"
         You ignore him, even if the blood sacrifice comment hits unnervingly close to home, but Brigid looks uncomfortable.
-        {brigid_facts.knows_jones_weird:
+        {brigid_facts has brigid_facts.knows_jones_weird:
             "Maybe we shouldn't joke about that. You know, with what Jones already said?"
             Felixe just shrugs, but frowns to himself.
             - else:
@@ -287,13 +287,13 @@ You skim through the documents. You've had the chance to read them before, but t
     -
     {askedAboutPapers:
         You shrug. "I asked, but he just said 'you'll see.' I guess it's some code for something?"
-        {brigid_facts.knows_jones_weird:
+        {brigid_facts has brigid_facts.knows_jones_weird:
             "Sounds like some cult business to me," Felixe chimes in.
             "Not helping!" Brigid says.
         }
         - else:
         "I have no idea. By the time I got to this, I just wanted to get the hell out of there, you know?" you admit. "It's gotta be code for something, though, right?"
-        {brigid_facts.knows_jones_weird:
+        {brigid_facts has brigid_facts.knows_jones_weird:
             "Sounds like some cult business to me," Felixe chimes in.
             "Not helping!" Brigid says.
         }
@@ -313,7 +313,7 @@ You skim through the documents. You've had the chance to read them before, but t
         ~alter(jonesSuspicious_Thomas,1)
         [Something seems off...] #CLASS: change
         You chew your lip. "That's -- that's weird, right? There's no non-weird reason why the military and my blow off class have these same categories."
-        {brigid_facts.knows_jones_weird:
+        {brigid_facts has brigid_facts.knows_jones_weird:
             "Especially with what you said about your Dad," Brigid says, a lock of hair tight around her finger.
         }
     * [Joke]
