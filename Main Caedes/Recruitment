@@ -366,7 +366,43 @@ You skim through the documents. You've had the chance to read them before, but t
     }
     
     ===head_home
-    
+    #CLEAR
+    You take your {jonesRide} the rest of the way home.
+    Your dad's truck is in the driveway. You're sure he's going to want to talk about your appointment today. How are you going to handle it?
+        * [Approach him head on. You have some questions for him, actually.]
+            Why do you want to know more?
+            ** [He owes you an explanation after all of this. You signed a contract in blood!]
+                ~alter(jonesChange_Tough,1)
+                [You feel yourself becoming more Tough] #CLASS: change
+            ** [You're missing pieces of the puzzle. A whole lot of them. This is the first of many threads to pull on.]
+                ~alter(jonesChange_Sharp,1)
+                [You feel yourself becoming more Sharp] #CLASS: change
+            ** [You need to figure out if you've put Brigid and Felixe in danger.] 
+                ~alter(jonesChange_Charm,1)
+                [You feel yourself becoming more Charming] #CLASS: change
+            ** [You've lost control of what you thought was a much simpler situation. You need to figure out what you've gotten yourself into.]
+                ~alter(jonesChange_Cool,1)
+                [You feel yourself becoming more Cool] #CLASS: change
+            -
+       
+            You decisively throw open the door, but before you have a chance to look for your dad, he appears out of the hallway, presumably from his study. Or den. Or man cave. He likes to change how he refers to it based on what he's using it for at any point in time.
+                He smiles when he sees you. "I thought I heard the door open. How'd the appointment go?" There's an edge to his voice.
+                *** [Talk to your dad.]
+        * [Keep it simple and vague. Maybe you can avoid getting too into it.]
+            You softly turn the knob, and open the door, but the creak of the hinges betray you and you hear your dad coming down the hall from his study or man cave or whatever he decided to call it this week. You abruptly remember he had asked you to clean and oil the hinges a few weeks ago. Hoisted on your own petard. You stop yourself from going down the rabbit hole of wondering what a petard is or if you even used that phrase right to listen to your dad speak.
+            "I thought I heard the door open. How'd the appointment go?" He's smiling, but there's a tightness around his eyes that betrays the very anxiety you do not want to deal with right now.
+        * [Avoid him entirely. Maybe you can sneak through the back?]
+            Your dad is either in the living room, which is right next to the front door, or his study (or den or whatever he decided to call it this week), which is close enough to the front door that the back door is the safer option.
+            The thing is, neither you nor your dad really uses the back door that often, so maintenance of it hasn't been a top priority. You're going to have to yank it both open and closed, which might cause a lot of noise.
+            - opts
+            ** [You're going to risk it.]
+                You approach the back door and give it an experimental tug. There's a little give, but you're going to have to pull a lot harder to actually open it, though closing it will be the noisiest part.
+                
+ 
+            ** [Maybe you can climb through a window.]
+            
+        
+    -
     
         * [See your stats] -> statsPage
         
